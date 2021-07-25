@@ -6,6 +6,7 @@ require("@nomiclabs/hardhat-ethers")
 require("@nomiclabs/hardhat-truffle5")
 require("@nomiclabs/hardhat-etherscan")
 require("hardhat-deploy")
+require('solidity-coverage')
 require("./tasks/accounts")
 require("./tasks/balance")
 require("./tasks/fund-link")
@@ -31,19 +32,19 @@ module.exports = {
     defaultNetwork: "hardhat",
     networks: {
         hardhat: {
-            // // If you want to do some forking, uncomment this
-            // forking: {
-            //   url: MAINNET_RPC_URL
-            // }
+            // If you want to do some forking, uncomment this
+            forking: {
+              url: MAINNET_RPC_URL
+            }
         },
         localhost: {
         },
         kovan: {
             url: KOVAN_RPC_URL,
-            // accounts: [PRIVATE_KEY],
-            accounts: {
-                mnemonic: MNEMONIC,
-            },
+            accounts: [PRIVATE_KEY],
+            //accounts: {
+            //    mnemonic: MNEMONIC,
+            //},
             saveDeployments: true,
         },
         rinkeby: {
